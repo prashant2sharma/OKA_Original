@@ -31,7 +31,21 @@
 <link rel="icon" type="image/x-icon" href="https://www.oka.com/media/favicon/stores/1/favicon.ico" />
 <link rel="shortcut icon" type="image/x-icon" href="https://www.oka.com/media/favicon/stores/1/favicon.ico" />
 
-<style>
+<style type='text/css'>
+ 
+ .embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #624e4b;
+		font-family: "Salesforce Sans", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #624e4b;
+	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+		url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+	}
+ 
 #cookie-status {
 display: none;
 }
@@ -3430,4 +3444,58 @@ try {
 </script>
 <script type="text/javascript" src="https://www.oka.com/static/version1683187438/frontend/Oka/framework/default/Gene_Framework/js/head-additional.js" defer></script>
 <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-c02548ae2ff26b14490","applicationID":"1075751229,1075811581","transactionName":"MlBXbBMAWBJYWkxQXgsadFsVCFkPFlpVSh4MW1FdGU5fD11cQA==","queueTime":0,"applicationTime":483,"atts":"HhdAGlsaS00bWBoDShhI","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://prashantkrsharma-dev-ed.my.salesforce.com',
+			'https://prashantkrsharma-dev-ed.my.site.com/defaulthelpcenter8Aug',
+			gslbBaseURL,
+			'00D5i000001uwWY',
+			'OKA_Original',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c2-hnd.salesforceliveagent.com/content',
+				deploymentId: '5725i0000009E3S',
+				buttonId: '5735i0000009Hci',
+				baseLiveAgentURL: 'https://d.la2-c2-hnd.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'OKA_Original',
+				isOfflineSupportEnabled: true
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://prashantkrsharma-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+
 </html>
