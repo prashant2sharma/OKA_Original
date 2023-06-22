@@ -37,6 +37,9 @@
 	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #624e4b;
 		font-family: "Arial", sans-serif;
+		font-size: 14px;
+		width:15px;
+		height:15px;
 	}
 	.embeddedServiceHelpButton .helpButton .uiButton:focus {
 		outline: 1px solid #624e4b;
@@ -48,7 +51,7 @@
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
+		embedded_svc.settings.widgetFontSize =14;
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
