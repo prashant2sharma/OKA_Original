@@ -3429,11 +3429,15 @@ try {
 	embeddedservice-chat-header svg.slds-icon-text-default {
 	    height: 19px;
 	}
-	.minimizeButton, .closeButton
-	{
-		text-transform: inherit;
-		font-size:16px;
+	button.minimizeButton[embeddedService-chatHeader_chatHeader] {
+    		padding-bottom: 4px;
 	}
+	.embeddedServiceLiveAgentStateChatItem.chatMessage button {
+	    text-transform: inherit;
+	}
+	h2[embeddedService-chatHeader_chatHeader] 
+	{
+		color:white;
 	}
 </style>
 
